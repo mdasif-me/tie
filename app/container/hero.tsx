@@ -3,6 +3,7 @@ import Image from 'next/image';
 import chart from '../../public/chart.svg';
 import { Button, LiquidButton } from '../components';
 import { states } from '../constants';
+import HeroCard from './hero-card';
 import Navbar from './navbar';
 import StatesCard from './states-card';
 
@@ -56,6 +57,7 @@ export default function Hero() {
           ))}
         </div>
       </div>
+      <HeroCard />
     </div>
   );
 }

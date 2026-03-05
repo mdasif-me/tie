@@ -2,9 +2,12 @@
 
 @theme {
   --color-primary: #03c3f9;
+  --color-info: #0f50bd;
   --color-black: #000919;
   --color-white: #ffffff;
   --color-secondary: #05183a;
+  --color-danger: #ff2d55;
+  --color-success: #34c759;
 }
 
 /* From Uiverse.io by ArturCodeCraft */
