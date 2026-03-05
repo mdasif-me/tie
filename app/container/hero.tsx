@@ -1,18 +1,61 @@
+import { PlayCircleIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+import chart from '../../public/chart.svg';
+import { Button, LiquidButton } from '../components';
+import { states } from '../constants';
 import Navbar from './navbar';
+import StatesCard from './states-card';
 
 export default function Hero() {
   return (
     <div
       style={{
-        backgroundImage: "url('/hero.svg')",
+        backgroundImage: "url('/hero.webp')",
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'bottom',
         backgroundRepeat: 'no-repeat',
-        height: '100vh',
         width: '100%',
       }}
+      className='relative xl:h-[920px] lg:h-[820px] sm:h-[720px] h-[640px]'
     >
       <Navbar />
+      <article className='text-center text-white max-w-2xl mx-auto lg:mt-20 mt-5 px-4 '>
+        <p className='lg:text-lg sm:text-base text-sm leading-loose'>
+          Trusted by 140+ implant practices nationwide
+        </p>
+        <h1 className='font-bold xl:text-6xl lg:text-4xl sm:text-3xl text-xl leading-tight mt-3'>
+          The Proven Growth Engine for{' '}
+          <span className='font-bold text-primary'>Full-Arch</span> Providers
+        </h1>
+        <p className='mt-7 lg:text-lg sm:text-base text-sm md:px-10 leading-relaxed'>
+          Scale All-on-X without junk leads, no-shows, or racing to the bottom
+          on price.We build the infrastructure that turns clinical skill into
+          predictable full-arch revenue.
+        </p>
+      </article>
+      <Image
+        className='absolute left-52 bottom-96 xl:block hidden'
+        src={chart}
+        alt='chart-icon'
+        width={190}
+        height={34}
+      />
+      <div className='w-fit mx-auto sm:gap-6 gap-2 flex items-center mt-9'>
+        <Button className='lg:text-base! text-xs!' is_arrow={false}>
+          Book a Demo
+        </Button>
+        <LiquidButton btn_className='flex items-center gap-3 lg:text-xl! text-xs!'>
+          <PlayCircleIcon className='w-6 h-6' />
+          See Results
+        </LiquidButton>
+      </div>
+      <div className='absolute bottom-8 left-1/2 -translate-x-1/2 md:w-fit w-full'>
+        <div className='flex flex-wrap items-center justify-center gap-4'>
+          {states.map((state, idx) => (
+            <StatesCard key={idx} {...state} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

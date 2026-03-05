@@ -4,14 +4,16 @@ const Button = ({
   children,
   is_arrow = true,
   className,
+  btn_className,
 }: Readonly<{
   children: React.ReactNode;
   is_arrow?: boolean;
   className?: string;
+  btn_className?: string;
 }>) => {
   return (
     <StyledWrapper className={className}>
-      <button>
+      <button className={`${btn_className} cursor-pointer`}>
         {children}
         {is_arrow && (
           <div className='arrow-wrapper'>
