@@ -1,3 +1,5 @@
+import Navbar from './navbar';
+
 export default function Hero() {
   return (
     <div
@@ -10,7 +12,7 @@ export default function Hero() {
         width: '100%',
       }}
     >
-      Hero
+      <Navbar />
     </div>
   );
 }
