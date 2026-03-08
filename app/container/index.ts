@@ -1,4 +1,5 @@
 export { default as About } from './about/about';
+export { default as Growth } from './growth-engine/growth';
 export { default as Header } from './header';
 export { default as Hero } from './hero';
 export { default as HeroCard } from './hero-card';

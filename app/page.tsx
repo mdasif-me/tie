@@ -1,4 +1,4 @@
-import { About, Header, Hero } from './container';
+import { About, Growth, Header, Hero } from './container';
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Growth />
     </div>
   );
 }

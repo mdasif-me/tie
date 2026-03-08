@@ -23,12 +23,12 @@ const StyledWrapper = styled.div`
     font-weight: bold;
     border-radius: 100vmax;
     isolation: isolate;
-    background-color: rgb(255 255 255 / 5%);
+    background-color: rgb(255 255 255 / 1%);
     color: rgb(255 255 255 / 90%);
-    text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    text-shadow: 0 2px 4px rgb(0 0 0 / 5%);
     box-shadow:
-      0 6px 6px rgb(0 0 0 / 10%),
-      0 0 20px rgb(0 0 0 / 5%);
+      0 6px 6px rgb(0 0 0 / 5%),
+      0 0 20px rgb(0 0 0 / 1%);
     text-align: center;
     user-select: none;
     cursor: pointer;
@@ -51,8 +51,8 @@ const StyledWrapper = styled.div`
     /* // Outline shine */
     &::after {
       box-shadow:
-        inset 2px 2px 1px 0 rgb(255 255 255 / 10%),
-        inset -1px -1px 1px 1px rgb(255 255 255 / 10%);
+        inset 2px 2px 1px 0 rgb(255 255 255 / 5%),
+        inset -1px -1px 1px 1px rgb(255 255 255 / 5%);
     }
 
     &.dragging {

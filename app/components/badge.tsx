@@ -17,7 +17,7 @@ const Badge = ({
       style = 'bg-primary/10 text-primary';
       break;
     case 'secondary':
-      style = 'bg-secondary/10 text-secondary';
+      style = 'bg-white/10 text-primary';
       break;
     case 'danger':
       style = 'bg-red-100 text-red-500';
