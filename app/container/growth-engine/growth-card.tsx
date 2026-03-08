@@ -55,8 +55,8 @@ export default function GrowthCard({
                       y2='15.3477'
                       gradientUnits='userSpaceOnUse'
                     >
-                      <stop stop-color='#03C3F9' />
-                      <stop offset='1' stop-color='#0F50BD' />
+                      <stop stopColor='#03C3F9' />
+                      <stop offset='1' stopColor='#0F50BD' />
                     </linearGradient>
                   </defs>
                 </svg>

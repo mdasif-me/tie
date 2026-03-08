@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const Content = memo(function Content() {
   return (
-    <div className='space-y-5 max-w-lg'>
+    <div className='space-y-5 max-w-2xl'>
       <Badge
         className='font-bold! text-sm! py-2! px-8!'
         text='- You’re clinically ready to scale'
