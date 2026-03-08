@@ -14,7 +14,7 @@ const Badge = ({
   let style = '';
   switch (variant.toLowerCase()) {
     case 'primary':
-      style = 'bg-primary/25 text-info';
+      style = 'bg-primary/10 text-primary';
       break;
     case 'secondary':
       style = 'bg-secondary/10 text-secondary';
