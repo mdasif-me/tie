@@ -6,6 +6,13 @@ export interface IGrowth {
   fcontent?: string;
   tcontent?: string;
 }
+export interface IStudies {
+  logo: string;
+  title: string;
+  subtitle: string;
+  badge?: string;
+  background?: string;
+}
 
 export const growth: IGrowth[] = [
   {
@@ -30,5 +37,29 @@ export const growth: IGrowth[] = [
     tcontent: 'You get real-time visibility into:',
     fcontent: 'No guessing. No vanity metrics. What you measure, you multiply.',
     tags: ['Ad spend', 'Calls', 'Consults', 'Arches Closed'],
+  },
+];
+
+export const studies: IStudies[] = [
+  {
+    logo: '/star-dental.svg',
+    background: '/studies-place-1.svg',
+    title: 'Star Dental Implant & Cosmetic Center',
+    subtitle: 'Roseville, CA',
+    badge: '17.25x',
+  },
+  {
+    logo: '/innovative-dental.svg',
+    background: '/studies-place-2.svg',
+    title: 'Innovative Dental Implant Center',
+    subtitle: 'Springfield, MO',
+    badge: '10.75x',
+  },
+  {
+    logo: '/national-dental.svg',
+    background: '/studies-place-3.svg',
+    title: 'National Dental Implant Specialists',
+    subtitle: 'New York City, NY',
+    badge: '10.03x',
   },
 ];

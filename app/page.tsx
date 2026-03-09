@@ -1,4 +1,4 @@
-import { About, Growth, Header, Hero, Targeting } from './container';
+import { About, Growth, Header, Hero, Studies, Targeting } from './container';
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <About />
       <Growth />
       <Targeting />
+      <Studies />
     </div>
   );
 }
