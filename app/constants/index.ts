@@ -1,5 +1,13 @@
 export { states } from './hero';
 export type { IStatesCard } from './hero';
-export { growth, studies, type IGrowth, type IStudies } from './home';
+export {
+  growth,
+  specialized,
+  studies,
+  type IGrowth,
+  type ISpecialized,
+  type IStudies,
+  type SpecializedIcon,
+} from './home';
 export { navItems } from './nav';
 export type { INavItem } from './nav';

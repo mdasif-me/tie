@@ -4,6 +4,7 @@ import {
   Header,
   Hero,
   Leadership,
+  Specialized,
   Studies,
   Targeting,
 } from './container';
@@ -18,6 +19,7 @@ export default function Home() {
       <Targeting />
       <Studies />
       <Leadership />
+      <Specialized />
     </div>
   );
 }

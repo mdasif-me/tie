@@ -14,6 +14,22 @@ export interface IStudies {
   background?: string;
 }
 
+export type SpecializedIcon =
+  | 'authority'
+  | 'call'
+  | 'academy'
+  | 'seo'
+  | 'website'
+  | 'dashboard'
+  | 'smile'
+  | 'cta';
+
+export interface ISpecialized {
+  title: string;
+  icon: SpecializedIcon;
+  ctaLabel?: string;
+}
+
 export const growth: IGrowth[] = [
   {
     title: 'We Create Authority Driven Ads',
@@ -61,5 +77,41 @@ export const studies: IStudies[] = [
     title: 'National Dental Implant Specialists',
     subtitle: 'New York City, NY',
     badge: '10.03x',
+  },
+];
+
+export const specialized: ISpecialized[] = [
+  {
+    title: 'Authority Content & Video Production',
+    icon: 'authority',
+  },
+  {
+    title: 'Treatment Setters Call Center',
+    icon: 'call',
+  },
+  {
+    title: 'Full-Arch Academy Sales Training',
+    icon: 'academy',
+  },
+  {
+    title: 'AI-Driven Implant SEO',
+    icon: 'seo',
+  },
+  {
+    title: 'High-Conversion Website Builds',
+    icon: 'website',
+  },
+  {
+    title: 'Revenue/Performance Dashboards',
+    icon: 'dashboard',
+  },
+  {
+    title: 'Smile Reveal Software',
+    icon: 'smile',
+  },
+  {
+    title: 'Learn More About The Implant Engine Systems',
+    icon: 'cta',
+    ctaLabel: 'LEARN MORE',
   },
 ];
