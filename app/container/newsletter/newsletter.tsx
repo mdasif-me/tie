@@ -37,7 +37,7 @@ const Newsletter = memo(function Newsletter() {
                   name='email'
                   type='email'
                   placeholder='Enter Your Email'
-                  className='w-full flex-1 bg-transparent px-4 py-2.5 text-sm text-secondary placeholder:text-secondary/55 placeholder:italic outline-none'
+                  className='w-full flex-1 bg-transparent px-4 py-2.5 text-sm text-secondary placeholder:text-secondary/55 placeholder:italic outline-none rounded-full mr-1'
                 />
                 <button
                   type='submit'

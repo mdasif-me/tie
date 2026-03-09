@@ -1,4 +1,9 @@
 export { faqItems, type IFaqItem } from './faq';
+export {
+  footerCompanyLinks,
+  footerCoreEngineLinks,
+  type IFooterLink,
+} from './footer';
 export { states } from './hero';
 export type { IStatesCard } from './hero';
 export {
