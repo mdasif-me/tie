@@ -5,14 +5,14 @@ import { memo } from 'react';
 const Photo = memo(function Photo() {
   return (
     <div className='relative' data-animate='media'>
-      <div className='flex gap-8'>
+      <div>
         <Image
           draggable={false}
           src='/targeting-person.svg'
           alt='Person representing dental solutions'
           width={322}
           height={522}
-          className='w-full object-cntain'
+          className='w-full object-contain'
           priority
           loading='eager'
           quality={85}

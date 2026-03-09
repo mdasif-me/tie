@@ -66,10 +66,10 @@ export default function Hero() {
         </LiquidButton>
       </div>
       <div
-        className='absolute bottom-8 left-1/2 -translate-x-1/2 md:w-fit w-full'
+        className='absolute bottom-8 left-1/2 -translate-x-1/2 sm:w-fit w-9/12'
         data-animate='hero-stats'
       >
-        <div className='flex flex-wrap items-center justify-center gap-4'>
+        <div className='grid 2xl:grid-cols-4 grid-cols-2 gap-4 justify-center items-center'>
           {states.map((state, idx) => (
             <StatesCard key={idx} {...state} />
           ))}

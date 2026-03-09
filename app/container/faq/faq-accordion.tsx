@@ -32,7 +32,7 @@ const FaqAccordion = memo(function FaqAccordion({
               aria-controls={panelId}
               className='flex w-full items-start justify-between gap-4 text-left cursor-pointer'
             >
-              <span className='text-secondary lg:text-[2rem] md:text-[1.55rem] text-[1.2rem] font-semibold leading-tight'>
+              <span className='text-secondary 2xl:text-[2rem] md:text-[1.55rem] text-[1.2rem] font-semibold leading-tight'>
                 {item.question}
               </span>
               <ChevronDownIcon

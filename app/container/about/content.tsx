@@ -5,7 +5,7 @@ import { memo } from 'react';
 const Content = memo(function Content() {
   return (
     <div
-      className='lg:space-y-5 md:space-y-3 space-y-2 max-w-2xl'
+      className='lg:space-y-5 md:space-y-3 space-y-2 2xl:max-w-2xl max-w-lg'
       data-animate='copy'
     >
       <Badge

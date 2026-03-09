@@ -4,7 +4,7 @@ import { memo } from 'react';
 const Gallery = memo(function Gallery() {
   return (
     <div className='relative' data-animate='media'>
-      <div className='flex gap-5 md:h-full max-h-[522px]'>
+      <div className='flex 2xl:gap-5 gap-3 md:h-full max-h-[522px]'>
         <Image
           draggable={false}
           src='/dentist-doctor.webp'
@@ -37,7 +37,7 @@ const Gallery = memo(function Gallery() {
         height={156}
         loading='eager'
         sizes='(max-width: 768px) 100vw, 156px'
-        className='absolute top-20 md:-right-5 right-0 translate-x-1/2 z-50'
+        className='absolute top-20 xl:right-2 md:-right-5 right-0 translate-x-1/2 z-50'
         quality={85}
         data-animate='card'
       />
