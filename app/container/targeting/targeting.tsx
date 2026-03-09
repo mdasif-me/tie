@@ -4,7 +4,7 @@ import Photo from './photo';
 
 const Targeting = memo(function Targeting() {
   return (
-    <div className='container mx-auto lg:py-24 md:py-16 py-10 px-4 flex flex-wrap-reverse items-center lg:gap-24 md:gap-16 gap-10'>
+    <div className='container mx-auto flex flex-wrap items-center justify-center gap-x-20 gap-y-10 lg:py-24 md:py-16 py-10 px-4 overflow-hidden'>
       <Content />
       <Photo />
     </div>
