@@ -10,6 +10,10 @@
   --color-success: #34c759;
   --color-warning: #facf5c;
   --color-border: #f1f3f7;
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 560ms;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* From Uiverse.io by ArturCodeCraft */
@@ -43,4 +47,23 @@ a {
 .menu__link__active {
   width: 100%;
   color: #fff;
+}
+
+[data-hover='tilt'] {
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

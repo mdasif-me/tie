@@ -2,7 +2,11 @@ import { Badge } from '../components';
 
 export default function HeroCard() {
   return (
-    <div className='p-4 w-60 bg-white rounded-2xl shadow-2xl absolute 2xl:right-40 right-20 bottom-40 xl:block hidden'>
+    <div
+      className='p-4 w-60 bg-white rounded-2xl shadow-2xl absolute 2xl:right-40 right-20 bottom-40 xl:block hidden'
+      data-animate='hero-float'
+      data-hover='lift'
+    >
       <div className='flex items-center justify-between'>
         <h6 className='text-secondary font-bold text-xs'>IMPLANT PIPELINE</h6>
         <Badge text='+42%' varient='primary' className='font-extrabold!' />

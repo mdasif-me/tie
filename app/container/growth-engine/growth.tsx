@@ -5,20 +5,25 @@ import GrowthCard from './growth-card';
 
 const Growth = memo(function Growth() {
   return (
-    <div className='bg-secondary'>
+    <div className='bg-secondary' data-section='growth'>
       <div className='container mx-auto lg:py-20 md:py-14 py-10 lg:px-20 p-4'>
         <div className='flex justify-center items-center'>
           <article className='text-white text-center space-y-4'>
-            <Badge
-              text='- The Full-Arch Growth Engine'
-              varient='secondary'
-              className='md:px-8! py-3! uppercase!'
-            />
-            <h1 className='lg:text-4xl md:text-3xl text-2xl text-center font-bold lg:leading-11'>
+            <div data-animate='heading'>
+              <Badge
+                text='- The Full-Arch Growth Engine'
+                varient='secondary'
+                className='md:px-8! py-3! uppercase!'
+              />
+            </div>
+            <h1
+              className='lg:text-4xl md:text-3xl text-2xl text-center font-bold lg:leading-11'
+              data-animate='heading'
+            >
               How the Full-Arch{' '}
               <span className='text-primary'>Growth Engine</span> Works
             </h1>
-            <p className='lg:text-lg md:text-base text-sm'>
+            <p className='lg:text-lg md:text-base text-sm' data-animate='copy'>
               Four pillars. One outcome: qualified patients who say yes.
             </p>
           </article>
@@ -28,7 +33,10 @@ const Growth = memo(function Growth() {
             <GrowthCard key={index} item={item} num={index + 1} />
           ))}
         </div>
-        <div className='flex items-center justify-center mt-14'>
+        <div
+          className='flex items-center justify-center mt-14'
+          data-animate='cta'
+        >
           <LiquidButton>Book a Demo</LiquidButton>
         </div>
       </div>

@@ -26,7 +26,11 @@ const iconMap: Record<Exclude<SpecializedIcon, 'cta'>, IconComponent> = {
 export default function SpecializedCard(item: ISpecialized) {
   if (item.icon === 'cta') {
     return (
-      <article className='relative isolate h-[122px] rounded-[14px] bg-linear-to-br from-[#18c7f8] via-[#0bb8e9] to-[#06a4d6] p-4 text-white overflow-hidden shadow-[0_16px_32px_rgba(0,16,45,0.45)]'>
+      <article
+        className='relative isolate h-[122px] rounded-[14px] bg-linear-to-br from-[#18c7f8] via-[#0bb8e9] to-[#06a4d6] p-4 text-white overflow-hidden shadow-[0_16px_32px_rgba(0,16,45,0.45)]'
+        data-animate='card'
+        data-hover='glow'
+      >
         <div className='pointer-events-none absolute -bottom-10 -right-8 size-28 rounded-full border border-white/20' />
         <div className='pointer-events-none absolute -bottom-4 -right-3 size-16 rounded-full border border-white/25' />
         <h3 className='max-w-[16ch] md:text-[1.02rem] text-sm leading-5 font-bold'>
@@ -43,7 +47,11 @@ export default function SpecializedCard(item: ISpecialized) {
   const Icon = iconMap[item.icon];
 
   return (
-    <article className='h-[122px] rounded-[14px] bg-[#f0f1f3] px-4 py-4 shadow-[0_6px_20px_rgba(0,0,0,0.12)]'>
+    <article
+      className='h-[122px] rounded-[14px] bg-[#f0f1f3] px-4 py-4 shadow-[0_6px_20px_rgba(0,0,0,0.12)]'
+      data-animate='card'
+      data-hover='lift'
+    >
       <div className='inline-flex size-10 items-center justify-center rounded-xl bg-primary text-white shadow-[0_8px_18px_rgba(3,195,249,0.35)]'>
         <Icon className='size-5' />
       </div>

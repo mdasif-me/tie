@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const Photo = memo(function Photo() {
   return (
-    <div className='relative'>
+    <div className='relative' data-animate='media'>
       <div className='flex gap-8'>
         <Image
           draggable={false}
@@ -18,7 +18,11 @@ const Photo = memo(function Photo() {
           quality={85}
         />
       </div>
-      <div className='absolute lg:-left-3 md:left-2 left-0 right-2 md:top-24 top-40 md:bg-white bg-white/5 backdrop-blur-sm rounded-2xl w-fit shadow-2xl max-w-md min-w-48 p-3 md:space-y-3.5 space-y-1.5'>
+      <div
+        className='absolute lg:-left-3 md:left-2 left-0 right-2 md:top-24 top-40 md:bg-white bg-white/5 backdrop-blur-sm rounded-2xl w-fit shadow-2xl max-w-md min-w-48 p-3 md:space-y-3.5 space-y-1.5'
+        data-animate='card'
+        data-hover='lift'
+      >
         <div className='flex items-center gap-2'>
           <ChatBubbleLeftRightIcon className='shrink-0 rounded-full text-white bg-secondary size-10 p-2' />
           <article>
@@ -45,7 +49,11 @@ const Photo = memo(function Photo() {
           </article>
         </div>
       </div>
-      <div className='absolute lg:-right-10 right-0 bottom-24 bg-white rounded-2xl w-fit shadow-2xl max-w-md min-w-48 p-3 space-y-3.5 md:block hidden'>
+      <div
+        className='absolute lg:-right-10 right-0 bottom-24 bg-white rounded-2xl w-fit shadow-2xl max-w-md min-w-48 p-3 space-y-3.5 md:block hidden'
+        data-animate='card'
+        data-hover='lift'
+      >
         <div className='flex items-center gap-2'>
           <article className='space-y-1.5 text-center'>
             <div className='flex justify-center -space-x-3 overflow-hidden p-1'>

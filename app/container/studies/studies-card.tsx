@@ -5,6 +5,8 @@ export default function StudiesCard(item: IStudies) {
   return (
     <div
       className='relative isolate w-full max-w-[380px] h-[420px] overflow-hidden rounded-[28px] border-white/10 border-2 shadow-[0_25px_60px_rgba(1,10,28,0.55)]'
+      data-animate='card'
+      data-hover='tilt'
       style={{
         backgroundImage: item.background ? `url(${item.background})` : 'none',
         backgroundPosition: 'center',
@@ -48,6 +50,7 @@ export default function StudiesCard(item: IStudies) {
           <button
             type='button'
             className='w-full rounded-full border border-white/50 bg-white/5 md:px-6 py-2 px-2  md:text-lg text-sm font-semibold text-white backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]'
+            data-hover='glow'
           >
             Learn More →
           </button>

@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 const Gallery = memo(function Gallery() {
   return (
-    <div className='relative'>
+    <div className='relative' data-animate='media'>
       <div className='flex gap-5 md:h-full max-h-[522px]'>
         <Image
           draggable={false}
@@ -39,8 +39,13 @@ const Gallery = memo(function Gallery() {
         sizes='(max-width: 768px) 100vw, 156px'
         className='absolute top-20 md:-right-5 right-0 translate-x-1/2 z-50'
         quality={85}
+        data-animate='card'
       />
-      <div className='absolute flex items-center md:gap-5 gap-2 md:-left-3 left-2 right-2 bottom-20 p-2 bg-white rounded-2xl w-fit shadow-xl max-w-md'>
+      <div
+        className='absolute flex items-center md:gap-5 gap-2 md:-left-3 left-2 right-2 bottom-20 p-2 bg-white rounded-2xl w-fit shadow-xl max-w-md'
+        data-animate='card'
+        data-hover='lift'
+      >
         <Image
           draggable={false}
           src='/avatar.png'

@@ -10,10 +10,10 @@ import { memo } from 'react';
 
 const Footer = memo(function Footer() {
   return (
-    <footer className='bg-secondary text-white'>
+    <footer className='bg-secondary text-white' data-section='footer'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-10 py-14'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12'>
-          <article className='max-w-sm'>
+          <article className='max-w-sm' data-animate='footer-col'>
             <Image
               src='/logo.svg'
               alt='The Implant Engine logo'
@@ -29,6 +29,7 @@ const Footer = memo(function Footer() {
                 href='#'
                 aria-label='Facebook'
                 className='inline-flex size-9 items-center justify-center rounded-full bg-white/12 text-white/85 transition-colors hover:bg-white/20'
+                data-hover='glow'
               >
                 <FacebookIcon />
               </Link>
@@ -36,6 +37,7 @@ const Footer = memo(function Footer() {
                 href='#'
                 aria-label='Instagram'
                 className='inline-flex size-9 items-center justify-center rounded-full bg-white/12 text-white/85 transition-colors hover:bg-white/20'
+                data-hover='glow'
               >
                 <InstagramIcon />
               </Link>
@@ -45,7 +47,7 @@ const Footer = memo(function Footer() {
           <FooterLinks title='Core Engine' links={footerCoreEngineLinks} />
           <FooterLinks title='Company' links={footerCompanyLinks} />
 
-          <article className='max-w-sm'>
+          <article className='max-w-sm' data-animate='footer-col'>
             <h3 className='text-white text-2xl font-semibold'>
               Join the Newsletter
             </h3>
@@ -68,6 +70,7 @@ const Footer = memo(function Footer() {
                 type='submit'
                 aria-label='Subscribe'
                 className='inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary text-white transition-colors hover:bg-info'
+                data-hover='glow'
               >
                 <PaperAirplaneIcon className='size-4' />
               </button>
@@ -75,7 +78,10 @@ const Footer = memo(function Footer() {
           </article>
         </div>
 
-        <div className='mt-10 border-t border-white/15 pt-6 text-center text-sm text-white/80'>
+        <div
+          className='mt-10 border-t border-white/15 pt-6 text-center text-sm text-white/80'
+          data-animate='footer-bottom'
+        >
           &copy; 2026 The Implant Engine. All rights reserved. Designed for
           elite dental practices.
         </div>
@@ -92,7 +98,7 @@ function FooterLinks({
   links: IFooterLink[];
 }>) {
   return (
-    <article>
+    <article data-animate='footer-col'>
       <h3 className='text-white text-2xl font-semibold'>{title}</h3>
       <ul className='mt-4 space-y-3'>
         {links.map((link) => (

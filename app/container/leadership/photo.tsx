@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 const Photo = memo(function Photo() {
   return (
-    <div className='relative'>
+    <div className='relative' data-animate='media'>
       <Image
         draggable={false}
         src='/leadership.svg'

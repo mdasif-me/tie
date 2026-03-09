@@ -1,3 +1,4 @@
+import { LandingAnimations } from './animations';
 import {
   About,
   Faq,
@@ -15,16 +16,19 @@ import {
 export default function Home() {
   return (
     <>
-      <Header />
-      <Hero />
-      <About />
-      <Growth />
-      <Targeting />
-      <Studies />
-      <Leadership />
-      <Specialized />
-      <Faq />
-      <Newsletter />
+      <LandingAnimations />
+      <div className='pb-24'>
+        <Header />
+        <Hero />
+        <About />
+        <Growth />
+        <Targeting />
+        <Studies />
+        <Leadership />
+        <Specialized />
+        <Faq />
+        <Newsletter />
+      </div>
       <Footer />
     </>
   );

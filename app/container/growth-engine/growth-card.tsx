@@ -9,7 +9,11 @@ export default function GrowthCard({
   num: number;
 }) {
   return (
-    <div className='bg-white md:px-6 md:py-7 px-3 py-4 rounded-3xl'>
+    <div
+      className='bg-white md:px-6 md:py-7 px-3 py-4 rounded-3xl'
+      data-animate='card'
+      data-hover='lift'
+    >
       <article className='flex flex-wrap md:gap-4 gap-2 items-center'>
         <span className='bg-primary text-white font-bold text-xl w-fit rounded-xl md:px-4 px-2 md:py-3 py-1.5'>
           {num.toString().padStart(2, '0')}

@@ -5,20 +5,25 @@ import StudiesCard from './studies-card';
 
 const Studies = memo(function Studies() {
   return (
-    <div className='bg-secondary'>
+    <div className='bg-secondary' data-section='studies'>
       <div className='container mx-auto lg:py-20 md:py-14 py-10 lg:px-20 p-4'>
         <div className='flex justify-center items-center'>
           <article className='text-white text-center space-y-4'>
-            <Badge
-              text='- BASE STUDIES'
-              varient='secondary'
-              className='md:px-8! py-3! uppercase!'
-            />
-            <h1 className='lg:text-4xl md:text-3xl text-2xl text-center font-bold lg:leading-11'>
+            <div data-animate='heading'>
+              <Badge
+                text='- BASE STUDIES'
+                varient='secondary'
+                className='md:px-8! py-3! uppercase!'
+              />
+            </div>
+            <h1
+              className='lg:text-4xl md:text-3xl text-2xl text-center font-bold lg:leading-11'
+              data-animate='heading'
+            >
               <span className='text-primary'>Proven</span> ROl in Every
               Market.{' '}
             </h1>
-            <p className='lg:text-lg md:text-base text-sm'>
+            <p className='lg:text-lg md:text-base text-sm' data-animate='copy'>
               Different cities. Different practices. Same system. Same
               outcome.{' '}
             </p>

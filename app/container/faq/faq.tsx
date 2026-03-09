@@ -5,10 +5,10 @@ import FaqAccordion from './faq-accordion';
 
 const Faq = memo(function Faq() {
   return (
-    <section>
+    <section data-section='faq'>
       <div className='container mx-auto lg:py-24 md:py-16 py-12 px-4 sm:px-6'>
         <div className='grid items-start gap-10 lg:gap-16 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]'>
-          <article className='space-y-5 max-w-md'>
+          <article className='space-y-5 max-w-md' data-animate='faq-intro'>
             <Badge
               text='- FAQ'
               varient='primary'
@@ -26,6 +26,8 @@ const Faq = memo(function Faq() {
             <button
               type='button'
               className='mt-2 inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-bold text-white transition-colors hover:bg-info'
+              data-animate='cta'
+              data-hover='glow'
             >
               Book a Demo
             </button>

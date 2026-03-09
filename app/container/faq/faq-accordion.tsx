@@ -12,7 +12,7 @@ const FaqAccordion = memo(function FaqAccordion({
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <div className='w-full'>
+    <div className='w-full' data-animate='faq-accordion'>
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const buttonId = `faq-button-${index}`;
@@ -22,6 +22,7 @@ const FaqAccordion = memo(function FaqAccordion({
           <article
             key={item.question}
             className='border-b border-black/10 py-4 first:pt-0'
+            data-animate='faq-item'
           >
             <button
               type='button'
