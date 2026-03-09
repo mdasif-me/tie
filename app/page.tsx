@@ -5,6 +5,7 @@ import {
   Header,
   Hero,
   Leadership,
+  Newsletter,
   Specialized,
   Studies,
   Targeting,
@@ -22,6 +23,7 @@ export default function Home() {
       <Leadership />
       <Specialized />
       <Faq />
+      <Newsletter />
     </div>
   );
 }

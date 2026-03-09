@@ -6,6 +6,7 @@ export { default as Hero } from './hero';
 export { default as HeroCard } from './hero-card';
 export { default as Leadership } from './leadership/leadership';
 export { default as Navbar } from './navbar';
+export { default as Newsletter } from './newsletter/newsletter';
 export { default as Specialized } from './specialized/specialized';
 export { default as StatesCard } from './states-card';
 export { default as Studies } from './studies/studies';

@@ -38,7 +38,7 @@ const Photo = memo(function Photo() {
         </div>
         <div className='bg-border w-full h-[1px]' />
         <div className='flex items-center gap-2'>
-          <StarIcon className='shrink-0 rounded-full text-white bg-secondary size-10 p-2' />
+          <StarIcon className='shrink-0 rounded-full text-white bg-primary size-10 p-2' />
           <article>
             <h3 className='text-black font-bold text-xl'>50K+</h3>
             <p className='text-xs font-normal'>Patients Onboarded</p>

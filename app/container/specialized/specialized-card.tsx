@@ -29,7 +29,7 @@ export default function SpecializedCard(item: ISpecialized) {
       <article className='relative isolate h-[122px] rounded-[14px] bg-linear-to-br from-[#18c7f8] via-[#0bb8e9] to-[#06a4d6] p-4 text-white overflow-hidden shadow-[0_16px_32px_rgba(0,16,45,0.45)]'>
         <div className='pointer-events-none absolute -bottom-10 -right-8 size-28 rounded-full border border-white/20' />
         <div className='pointer-events-none absolute -bottom-4 -right-3 size-16 rounded-full border border-white/25' />
-        <h3 className='max-w-[16ch] text-[1.02rem] leading-5 font-bold'>
+        <h3 className='max-w-[16ch] md:text-[1.02rem] text-sm leading-5 font-bold'>
           {item.title}
         </h3>
         <p className='mt-6 inline-flex items-center gap-1 text-sm font-bold tracking-[0.08em]'>
@@ -47,7 +47,7 @@ export default function SpecializedCard(item: ISpecialized) {
       <div className='inline-flex size-10 items-center justify-center rounded-xl bg-primary text-white shadow-[0_8px_18px_rgba(3,195,249,0.35)]'>
         <Icon className='size-5' />
       </div>
-      <h3 className='mt-3 text-[1.02rem] font-semibold leading-5 text-[#121826]'>
+      <h3 className='mt-3 md:text-[1.02rem] text-sm font-semibold leading-5 text-[#121826]'>
         {item.title}
       </h3>
     </article>
