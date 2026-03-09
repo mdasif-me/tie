@@ -15,7 +15,9 @@
   --duration-slow: 560ms;
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
-
+body {
+  overflow-x: hidden;
+}
 /* From Uiverse.io by ArturCodeCraft */
 /* <reset-style> ============================ */
 a {
