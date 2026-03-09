@@ -4,7 +4,7 @@ import { IStatesCard } from '../constants';
 export default function StatesCard({ name, value, icon }: IStatesCard) {
   return (
     <div
-      className='bg-white/10 rounded-xl sm:px-3 px-2 sm:py-4 py-1 text-white flex items-center gap-4 flex-wrap sm:w-44 w-28'
+      className='bg-white/10 rounded-xl sm:px-3 px-2 sm:py-4 py-1 text-white flex items-center gap-4 flex-wrap sm:w-44 w-32'
       data-animate='hero-state-card'
       data-hover='lift'
     >

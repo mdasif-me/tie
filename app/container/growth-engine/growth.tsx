@@ -6,7 +6,7 @@ import GrowthCard from './growth-card';
 const Growth = memo(function Growth() {
   return (
     <div className='bg-secondary' data-section='growth'>
-      <div className='container mx-auto lg:py-20 md:py-14 py-10 lg:px-20 p-4'>
+      <div className='container landing-shell mx-auto lg:py-20 md:py-14 py-10'>
         <div className='flex justify-center items-center'>
           <article className='text-white text-center space-y-4'>
             <div data-animate='heading'>

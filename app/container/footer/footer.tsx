@@ -11,7 +11,7 @@ import { memo } from 'react';
 const Footer = memo(function Footer() {
   return (
     <footer className='bg-secondary text-white' data-section='footer'>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-10 py-14'>
+      <div className='container landing-shell mx-auto py-14'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12'>
           <article className='max-w-sm' data-animate='footer-col'>
             <Image

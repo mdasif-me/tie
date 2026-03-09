@@ -135,7 +135,7 @@ export default function Navbar() {
     <>
       <nav
         ref={navbarRef}
-        className='w-full flex items-center justify-between container mx-auto px-4 py-8'
+        className='w-full flex items-center justify-between container landing-shell mx-auto py-8'
       >
         <Link ref={logoRef} href='/' onClick={closeMenu}>
           <Logo />

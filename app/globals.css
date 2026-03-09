@@ -15,6 +15,23 @@
   --duration-slow: 560ms;
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+:root {
+  --landing-inline-gutter: clamp(1rem, 2.2vw, 2.5rem);
+}
+
+.landing-shell {
+  padding-inline: var(--landing-inline-gutter);
+  padding-left: max(
+    var(--landing-inline-gutter),
+    env(safe-area-inset-left, 0px)
+  );
+  padding-right: max(
+    var(--landing-inline-gutter),
+    env(safe-area-inset-right, 0px)
+  );
+}
+
 body {
   overflow-x: hidden;
 }
