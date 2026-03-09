@@ -1,3 +1,4 @@
+export { faqItems, type IFaqItem } from './faq';
 export { states } from './hero';
 export type { IStatesCard } from './hero';
 export {

@@ -1,5 +1,6 @@
 import {
   About,
+  Faq,
   Growth,
   Header,
   Hero,
@@ -20,6 +21,7 @@ export default function Home() {
       <Studies />
       <Leadership />
       <Specialized />
+      <Faq />
     </div>
   );
 }
