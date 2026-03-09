@@ -25,9 +25,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'The Implant Engine',
+  metadataBase: new URL('https://theimplantengine.vercel.app/'),
+  title: 'The Implant Engine | Full-Arch Dental Growth Engine',
   description:
-    'The Proven Growth Engine for Full-Arch Providers. Scale All-on-X without junk leads, no-shows, or racing to the bottom on price.We build the infrastructure that turns clinical skill into predictable full-arch revenue.',
+    'The Proven Growth Engine for Full-Arch Providers. Scale All-on-X without junk leads, no-shows, or racing to the bottom on price. We build the infrastructure that turns clinical skill into predictable full-arch revenue.',
+  keywords: [
+    'full-arch dental marketing',
+    'all-on-x marketing',
+    'dental implant marketing',
+    'implant lead generation',
+    'dental practice growth',
+    'dental implant seo',
+    'full-arch patient acquisition',
+    'implant case acceptance',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'The Implant Engine',
+    title: 'The Implant Engine | Full-Arch Dental Growth Engine',
+    description:
+      'Scale All-on-X without junk leads, no-shows, or racing to the bottom on price. The Implant Engine helps full-arch providers build predictable revenue.',
+    images: [
+      {
+        url: '/hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'The Implant Engine for Full-Arch Providers',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Implant Engine | Full-Arch Dental Growth Engine',
+    description:
+      'Scale All-on-X with qualified patients and predictable full-arch revenue.',
+    images: ['/hero.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
 };
 
 export default function RootLayout({
