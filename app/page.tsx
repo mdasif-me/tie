@@ -15,18 +15,16 @@ import {
 export default function Home() {
   return (
     <>
-      <div className='pb-24'>
-        <Header />
-        <Hero />
-        <About />
-        <Growth />
-        <Targeting />
-        <Studies />
-        <Leadership />
-        <Specialized />
-        <Faq />
-        <Newsletter />
-      </div>
+      <Header />
+      <Hero />
+      <About />
+      <Growth />
+      <Targeting />
+      <Studies />
+      <Leadership />
+      <Specialized />
+      <Faq />
+      <Newsletter />
       <Footer />
     </>
   );

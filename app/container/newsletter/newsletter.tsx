@@ -4,7 +4,7 @@ import { memo } from 'react';
 const Newsletter = memo(function Newsletter() {
   return (
     <section>
-      <div className='container mx-auto lg:py-16 md:py-12 py-10 px-4 sm:px-6'>
+      <div className='container mx-auto pb-10 px-4 sm:px-6'>
         <div className='relative overflow-hidden rounded-2xl md:rounded-3xl md:bg-transparent bg-secondary'>
           <div
             className='absolute inset-0 hidden md:block bg-center bg-contain bg-no-repeat min-h-[360px] h-full'
