@@ -9,21 +9,29 @@ export default function GrowthCard({
   num: number;
 }) {
   return (
-    <div className='bg-white px-6 py-7 rounded-3xl'>
-      <article className='flex flex-wrap gap-4 items-center'>
-        <span className='bg-primary text-white font-bold text-xl w-fit rounded-xl px-4 py-3'>
+    <div className='bg-white md:px-6 md:py-7 px-3 py-4 rounded-3xl'>
+      <article className='flex flex-wrap md:gap-4 gap-2 items-center'>
+        <span className='bg-primary text-white font-bold text-xl w-fit rounded-xl md:px-4 px-2 md:py-3 py-1.5'>
           {num.toString().padStart(2, '0')}
         </span>
-        <p className='text-secondary text-2xl font-bold'>{item.title}</p>
+        <p className='text-secondary lg:text-2xl md:text-xl text-lg font-bold'>
+          {item.title}
+        </p>
       </article>
       <article className='space-y-4'>
-        {item.description && <p className='pt-3 text-lg'>{item.description}</p>}
+        {item.description && (
+          <p className='lg:text-lg md:text-base text-sm pt-3'>
+            {item.description}
+          </p>
+        )}
         {item.badge && (
-          <p className='p-3 text-sm font-bold rounded-lg bg-linear-to-r from-[#9c9c9cbb] to-[#AEAEAE00]'>
+          <p className='lg:text-lg md:text-base text-sm md:p-3 py-1 px-2 md:font-bold font-medium rounded-lg bg-linear-to-r from-[#9c9c9cbb] to-[#AEAEAE00]'>
             {item.badge}
           </p>
         )}
-        {item.tcontent && <p>{item.tcontent}</p>}
+        {item.tcontent && (
+          <p className='lg:text-lg md:text-base text-sm'>{item.tcontent}</p>
+        )}
         <div className='flex flex-wrap items-center gap-1'>
           {item.tags &&
             item.tags.map((tag, index) => (
@@ -68,7 +76,9 @@ export default function GrowthCard({
               </div>
             ))}
         </div>
-        {item.fcontent && <p>{item.fcontent}</p>}
+        {item.fcontent && (
+          <p className='lg:text-lg md:text-base text-sm'>{item.fcontent}</p>
+        )}
       </article>
     </div>
   );

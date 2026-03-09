@@ -40,7 +40,7 @@ const Gallery = memo(function Gallery() {
         className='absolute top-20 md:-right-5 right-0 translate-x-1/2 z-50'
         quality={85}
       />
-      <div className='absolute flex items-center gap-5 md:-left-3 left-2 right-2 bottom-20 p-2 bg-white rounded-2xl w-fit shadow-xl max-w-md'>
+      <div className='absolute flex items-center md:gap-5 gap-2 md:-left-3 left-2 right-2 bottom-20 p-2 bg-white rounded-2xl w-fit shadow-xl max-w-md'>
         <Image
           draggable={false}
           src='/avatar.png'
@@ -53,10 +53,10 @@ const Gallery = memo(function Gallery() {
           quality={85}
         />
         <article>
-          <h1 className='text-2xl text-secondary font-bold'>
+          <h1 className='lg:text-2xl md:text-xl text-lg text-secondary font-bold'>
             As one doctor put it
           </h1>
-          <p className='text-sm'>
+          <p className='lg:text-base md:text-sm text-xs'>
             “The deeper I get into this, the more I realize… it’s not the
             clinical. It’s everything around it that I don’t have a handle on.”
           </p>
