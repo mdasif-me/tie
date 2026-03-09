@@ -55,7 +55,7 @@ export default function SpecializedCard(item: ISpecialized) {
       <div className='inline-flex size-10 items-center justify-center rounded-xl bg-primary text-white shadow-[0_8px_18px_rgba(3,195,249,0.35)]'>
         <Icon className='size-5' />
       </div>
-      <h3 className='mt-3 md:text-[1.02rem] text-sm font-semibold leading-5 text-[#121826]'>
+      <h3 className='mt-3 md:text-[1.02rem] text-sm font-semibold leading-5 text-[#121826] line-clamp-2'>
         {item.title}
       </h3>
     </article>
