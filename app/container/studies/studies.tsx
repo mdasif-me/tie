@@ -8,7 +8,10 @@ const Studies = memo(function Studies() {
     <div id='studies' className='bg-secondary' data-section='studies'>
       <div className='container landing-shell mx-auto 2xl:py-20 md:py-14 py-10'>
         <div className='flex justify-center items-center'>
-          <article className='text-white text-center space-y-4'>
+          <article
+            className='text-white text-center space-y-4'
+            data-pin='studies-intro'
+          >
             <div data-animate='heading'>
               <Badge
                 text='- BASE STUDIES'
@@ -29,7 +32,10 @@ const Studies = memo(function Studies() {
             </p>
           </article>
         </div>
-        <div className='mt-14 flex flex-wrap gap-10 justify-center'>
+        <div
+          className='mt-14 flex flex-wrap gap-10 justify-center'
+          data-pin-track='studies-track'
+        >
           {studies.map((item) => (
             <StudiesCard key={item.title} {...item} />
           ))}

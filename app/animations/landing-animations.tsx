@@ -489,6 +489,30 @@ export default function LandingAnimations() {
       });
 
       // ── Content sections ──
+      // Second panel parallax scrub for a stronger scroll-synced feel.
+      withSection('about', (section, query) => {
+        const media = query('[data-animate="media"]')[0];
+
+        if (!media) {
+          return;
+        }
+
+        gsap.fromTo(
+          media,
+          { yPercent: -5 },
+          {
+            yPercent: 5,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      });
+
       createSplitSectionTimeline('about');
       createCardSectionTimeline('growth', { start: 'top 77%' });
       createSplitSectionTimeline('targeting', { start: 'top 78%' });
@@ -502,6 +526,35 @@ export default function LandingAnimations() {
         start: 'top 82%',
         cardY: 30,
         cardStagger: 0.07,
+      });
+
+      // Desktop pinning: keep studies intro locked while case-study cards pass.
+      ScrollTrigger.matchMedia({
+        '(min-width: 1024px)': () => {
+          withSection('studies', (section) => {
+            const intro = section.querySelector<HTMLElement>(
+              '[data-pin="studies-intro"]'
+            );
+            const track = section.querySelector<HTMLElement>(
+              '[data-pin-track="studies-track"]'
+            );
+
+            if (!intro || !track) {
+              return;
+            }
+
+            ScrollTrigger.create({
+              trigger: section,
+              start: 'top top+=96',
+              endTrigger: track,
+              end: 'bottom bottom',
+              pin: intro,
+              pinSpacing: true,
+              scrub: true,
+              anticipatePin: 1,
+            });
+          });
+        },
       });
 
       // ── FAQ ──
