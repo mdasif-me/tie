@@ -8,7 +8,11 @@ export default function Header() {
       data-animate='item'
     >
       Introducing{' '}
-      <Link href='/full-arch-growth-formula' className='underline'>
+      <Link
+        href='/full-arch-growth-formula'
+        prefetch={false}
+        className='underline'
+      >
         The Full Arch Growth <span className='ordinal'>Formula</span>
       </Link>
       <sup>TM</sup>, the dental marketing book for specialists. Claim your FREE

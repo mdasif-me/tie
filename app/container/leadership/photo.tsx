@@ -10,9 +10,8 @@ const Photo = memo(function Photo() {
         alt='Person representing dental solutions'
         width={322}
         height={522}
-        className='w-full object-cntain'
-        priority
-        loading='eager'
+        className='w-full h-auto object-contain'
+        sizes='(max-width: 768px) 100vw, 322px'
         quality={85}
       />
     </div>

@@ -7,13 +7,17 @@ export default function StudiesCard(item: IStudies) {
       className='relative isolate w-full max-w-[380px] h-[420px] overflow-hidden rounded-[28px] border-white/10 border-2 shadow-[0_25px_60px_rgba(1,10,28,0.55)]'
       data-animate='card'
       data-hover='tilt'
-      style={{
-        backgroundImage: item.background ? `url(${item.background})` : 'none',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }}
     >
+      {item.background ? (
+        <Image
+          src={item.background}
+          alt=''
+          fill
+          loading='lazy'
+          sizes='(max-width: 768px) 100vw, 380px'
+          className='object-cover'
+        />
+      ) : null}
       <div className='absolute inset-0 bg-black/30' />
       <div className='absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-black/20' />
       <div className='absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(3,195,249,0.18),transparent_70%)]' />

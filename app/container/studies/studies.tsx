@@ -5,7 +5,7 @@ import StudiesCard from './studies-card';
 
 const Studies = memo(function Studies() {
   return (
-    <div className='bg-secondary' data-section='studies'>
+    <div id='studies' className='bg-secondary' data-section='studies'>
       <div className='container landing-shell mx-auto 2xl:py-20 md:py-14 py-10'>
         <div className='flex justify-center items-center'>
           <article className='text-white text-center space-y-4'>

@@ -1,8 +1,14 @@
 'use client';
 
+import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+// ── Shared toggleActions: play on enter, reverse on leave-back ──
+const TOGGLE_ACTIONS = 'play none none reverse' as const;
 
 type SectionQuery = (selector: string) => HTMLElement[];
 
@@ -51,6 +57,8 @@ function appendFrom(
   timeline.from(targets, vars, position);
 }
 
+// ── Hover helpers (unchanged – these are event-driven, not scroll-driven) ──
+
 function setupLiftHover(elements: HTMLElement[]) {
   const cleanups: Array<() => void> = [];
 
@@ -97,25 +105,60 @@ function setupTiltHover(elements: HTMLElement[]) {
   const cleanups: Array<() => void> = [];
 
   elements.forEach((element) => {
-    const onMove = (event: MouseEvent) => {
-      const bounds = element.getBoundingClientRect();
-      const relativeX = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const relativeY = (event.clientY - bounds.top) / bounds.height - 0.5;
+    let bounds: DOMRect | null = null;
+    let frameId: number | null = null;
 
-      gsap.to(element, {
-        rotationY: relativeX * 7,
-        rotationX: -relativeY * 7,
-        y: -6,
-        scale: 1.01,
-        transformPerspective: 900,
-        transformOrigin: 'center',
-        duration: 0.35,
-        ease: 'power2.out',
-        overwrite: 'auto',
+    const updateBounds = () => {
+      bounds = element.getBoundingClientRect();
+    };
+
+    const resetFrame = () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+    };
+
+    const onEnter = () => {
+      updateBounds();
+    };
+
+    const onMove = (event: MouseEvent) => {
+      if (!bounds) {
+        updateBounds();
+      }
+
+      if (!bounds) {
+        return;
+      }
+
+      const { clientX, clientY } = event;
+      resetFrame();
+
+      frameId = window.requestAnimationFrame(() => {
+        if (!bounds) {
+          return;
+        }
+
+        const relativeX = (clientX - bounds.left) / bounds.width - 0.5;
+        const relativeY = (clientY - bounds.top) / bounds.height - 0.5;
+
+        gsap.to(element, {
+          rotationY: relativeX * 7,
+          rotationX: -relativeY * 7,
+          y: -6,
+          scale: 1.01,
+          transformPerspective: 900,
+          transformOrigin: 'center',
+          duration: 0.35,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
       });
     };
 
     const onLeave = () => {
+      resetFrame();
       gsap.to(element, {
         rotationX: 0,
         rotationY: 0,
@@ -127,12 +170,17 @@ function setupTiltHover(elements: HTMLElement[]) {
       });
     };
 
+    element.addEventListener('mouseenter', onEnter);
     element.addEventListener('mousemove', onMove);
     element.addEventListener('mouseleave', onLeave);
+    window.addEventListener('resize', updateBounds);
 
     cleanups.push(() => {
+      resetFrame();
+      element.removeEventListener('mouseenter', onEnter);
       element.removeEventListener('mousemove', onMove);
       element.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('resize', updateBounds);
     });
   });
 
@@ -183,6 +231,8 @@ function setupGlowHover(elements: HTMLElement[]) {
   };
 }
 
+// ── Section timeline factories (now use toggleActions instead of once) ──
+
 function createSplitSectionTimeline(
   sectionName: string,
   options?: SplitSectionOptions
@@ -194,7 +244,7 @@ function createSplitSectionTimeline(
       scrollTrigger: {
         trigger: section,
         start,
-        once: true,
+        toggleActions: TOGGLE_ACTIONS,
       },
       defaults: { ease: BASE_EASE },
     });
@@ -247,7 +297,7 @@ function createCardSectionTimeline(
       scrollTrigger: {
         trigger: section,
         start,
-        once: true,
+        toggleActions: TOGGLE_ACTIONS,
       },
       defaults: { ease: BASE_EASE },
     });
@@ -287,116 +337,158 @@ function createCardSectionTimeline(
   });
 }
 
+// ── Main component – useGSAP handles context + cleanup automatically ──
+
 export default function LandingAnimations() {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    const canAnimate =
-      typeof window !== 'undefined' &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  useGSAP(
+    () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
 
-    if (!canAnimate) {
-      return;
-    }
+      const supportsHover = window.matchMedia(
+        '(hover: hover) and (pointer: fine)'
+      ).matches;
+      const hoverCleanups: Array<() => void> = [];
 
-    const supportsHover = window.matchMedia(
-      '(hover: hover) and (pointer: fine)'
-    ).matches;
-    const hoverCleanups: Array<() => void> = [];
-
-    const context = gsap.context(() => {
+      // ── Header ──
       const header = document.querySelector<HTMLElement>(
         '[data-section="header"]'
       );
       if (header) {
-        gsap.from(header, {
-          y: -10,
-          autoAlpha: 0,
-          duration: 0.42,
-          ease: BASE_EASE,
-        });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: header,
+              start: 'top 96%',
+              toggleActions: TOGGLE_ACTIONS,
+            },
+            defaults: { ease: BASE_EASE },
+          })
+          .from(header, {
+            y: -10,
+            autoAlpha: 0,
+            duration: 0.42,
+          });
       }
 
+      // ── Hero reveal ──
       withSection('hero', (section, query) => {
-        const introTimeline = gsap.timeline({ defaults: { ease: BASE_EASE } });
+        const introTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 82%',
+            toggleActions: TOGGLE_ACTIONS,
+          },
+          defaults: { ease: BASE_EASE },
+        });
+
+        introTimeline.from(section, { autoAlpha: 0, duration: 0.6 }, 0);
 
         appendFrom(
           introTimeline,
           query('[data-animate="hero-line"]'),
-          {
-            y: 30,
-            autoAlpha: 0,
-            duration: 0.7,
-            stagger: 0.1,
-          },
-          0.2
+          { y: 50, autoAlpha: 0, duration: 0.7, stagger: 0.1 },
+          0.16
         );
 
         appendFrom(
           introTimeline,
           query('[data-animate="hero-cta"]'),
-          { y: 20, autoAlpha: 0, duration: 0.52 },
+          { y: 50, autoAlpha: 0, duration: 0.52 },
           '-=0.35'
         );
 
         appendFrom(
           introTimeline,
           query('[data-animate="hero-state-card"]'),
-          {
-            y: 24,
-            autoAlpha: 0,
-            duration: 0.52,
-            stagger: 0.08,
-          },
+          { y: 24, autoAlpha: 0, duration: 0.52, stagger: 0.08 },
           '-=0.24'
         );
 
         appendFrom(
           introTimeline,
           query('[data-animate="hero-float"]'),
-          {
-            y: 20,
-            autoAlpha: 0,
-            duration: 0.55,
-            stagger: 0.14,
-          },
+          { y: 20, autoAlpha: 0, duration: 0.55, stagger: 0.14 },
           '-=0.28'
         );
 
-        const floatingElements = query('[data-animate="hero-float"]');
-        if (floatingElements.length > 0) {
-          gsap.to(floatingElements, {
-            y: -8,
-            duration: 2.4,
-            stagger: 0.22,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-          });
+        // ── Hero parallax background (scrub) ──
+        const heroBg = section.querySelector<HTMLElement>('img');
+        if (heroBg) {
+          gsap.fromTo(
+            heroBg,
+            { yPercent: -8 },
+            {
+              yPercent: 8,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+              },
+            }
+          );
         }
+
+        // ── Looping float tweens, paused when out of view ──
+        const floatingElements = query('[data-animate="hero-float"]');
+        const floatingTween =
+          floatingElements.length > 0
+            ? gsap.to(floatingElements, {
+                y: -8,
+                duration: 2.4,
+                stagger: 0.22,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                paused: true,
+              })
+            : null;
 
         const stateCards = query('[data-animate="hero-state-card"]');
-        if (stateCards.length > 0) {
-          gsap.to(stateCards, {
-            y: -4,
-            duration: 2.1,
-            stagger: {
-              each: 0.12,
-              from: 'random',
+        const stateCardsTween =
+          stateCards.length > 0
+            ? gsap.to(stateCards, {
+                y: -4,
+                duration: 2.1,
+                stagger: { each: 0.12, from: 'random' },
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut',
+                paused: true,
+              })
+            : null;
+
+        if (floatingTween || stateCardsTween) {
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            onEnter: () => {
+              floatingTween?.play();
+              stateCardsTween?.play();
             },
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
+            onEnterBack: () => {
+              floatingTween?.play();
+              stateCardsTween?.play();
+            },
+            onLeave: () => {
+              floatingTween?.pause();
+              stateCardsTween?.pause();
+            },
+            onLeaveBack: () => {
+              floatingTween?.pause();
+              stateCardsTween?.pause();
+            },
           });
         }
-
-        gsap.from(section, {
-          autoAlpha: 0,
-          duration: 0.6,
-          ease: BASE_EASE,
-        });
       });
 
+      // ── Content sections ──
       createSplitSectionTimeline('about');
       createCardSectionTimeline('growth', { start: 'top 77%' });
       createSplitSectionTimeline('targeting', { start: 'top 78%' });
@@ -412,12 +504,13 @@ export default function LandingAnimations() {
         cardStagger: 0.07,
       });
 
+      // ── FAQ ──
       withSection('faq', (section, query) => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: 'top 82%',
-            once: true,
+            toggleActions: TOGGLE_ACTIONS,
           },
           defaults: { ease: BASE_EASE },
         });
@@ -444,12 +537,13 @@ export default function LandingAnimations() {
         );
       });
 
+      // ── Newsletter ──
       withSection('newsletter', (section, query) => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: 'top 85%',
-            once: true,
+            toggleActions: TOGGLE_ACTIONS,
           },
           defaults: { ease: BASE_EASE },
         });
@@ -476,12 +570,13 @@ export default function LandingAnimations() {
         );
       });
 
+      // ── Footer ──
       withSection('footer', (section, query) => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: 'top 88%',
-            once: true,
+            toggleActions: TOGGLE_ACTIONS,
           },
           defaults: { ease: BASE_EASE },
         });
@@ -501,6 +596,7 @@ export default function LandingAnimations() {
         );
       });
 
+      // ── Hover interactions ──
       if (supportsHover) {
         hoverCleanups.push(
           setupLiftHover(gsap.utils.toArray<HTMLElement>('[data-hover="lift"]'))
@@ -512,18 +608,20 @@ export default function LandingAnimations() {
           setupGlowHover(gsap.utils.toArray<HTMLElement>('[data-hover="glow"]'))
         );
       }
-    });
 
-    const refreshTimer = window.setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 320);
+      // Refresh after layout settles
+      const refreshTimer = window.setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 320);
 
-    return () => {
-      window.clearTimeout(refreshTimer);
-      hoverCleanups.forEach((cleanup) => cleanup());
-      context.revert();
-    };
-  }, []);
+      // useGSAP auto-reverts the gsap context; clean up event listeners here
+      return () => {
+        window.clearTimeout(refreshTimer);
+        hoverCleanups.forEach((cleanup) => cleanup());
+      };
+    },
+    { scope: containerRef }
+  );
 
-  return null;
+  return <div ref={containerRef} />;
 }

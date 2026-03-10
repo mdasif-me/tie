@@ -12,15 +12,18 @@ export default function Hero() {
     <div
       data-section='hero'
       data-animate='hero-bg'
-      style={{
-        backgroundImage: "url('/hero.webp')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom',
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-      }}
-      className='relative xl:h-[920px] lg:h-[820px] sm:h-[720px] h-[640px]'
+      className='relative isolate xl:h-[920px] lg:h-[820px] sm:h-[720px] h-[640px]'
     >
+      <Image
+        src='/hero.webp'
+        alt=''
+        fill
+        priority
+        sizes='100vw'
+        quality={70}
+        className='-z-20 object-cover object-bottom'
+      />
+      <div className='absolute inset-0 -z-10 bg-black/12' aria-hidden='true' />
       <Navbar />
       <article className='text-center text-white max-w-2xl mx-auto lg:mt-20 mt-5 px-4 '>
         <p
@@ -51,6 +54,7 @@ export default function Hero() {
         alt='chart-icon'
         width={190}
         height={34}
+        sizes='190px'
         data-animate='hero-float'
       />
       <div

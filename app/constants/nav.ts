@@ -6,22 +6,22 @@ export interface INavItem {
 export const navItems: INavItem[] = [
   {
     name: 'How it Works',
-    href: '/how-it-works',
+    href: '#growth',
   },
   {
     name: 'Services',
-    href: '/services',
+    href: '#specialized',
   },
   {
     name: 'Results',
-    href: '/results',
+    href: '#studies',
   },
   {
     name: 'Resources',
-    href: '/resources',
+    href: '#newsletter',
   },
   {
     name: 'Our Team',
-    href: '/our-team',
+    href: '#leadership',
   },
 ];

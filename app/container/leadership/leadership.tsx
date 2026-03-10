@@ -5,6 +5,7 @@ import Photo from './photo';
 const Leadership = memo(function Leadership() {
   return (
     <div
+      id='leadership'
       className='container landing-shell mx-auto flex flex-wrap items-center justify-center gap-x-20 gap-y-10 lg:py-24 md:py-16 py-10 overflow-hidden'
       data-section='leadership'
     >

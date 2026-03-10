@@ -105,6 +105,7 @@ function FooterLinks({
           <li key={link.label}>
             <Link
               href={link.href}
+              prefetch={false}
               className='text-sm text-white/75 transition-colors hover:text-white'
             >
               {link.label}

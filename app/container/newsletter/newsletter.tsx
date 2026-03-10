@@ -1,20 +1,25 @@
 import { Badge } from '@/app/components';
+import Image from 'next/image';
 import { memo } from 'react';
 
 const Newsletter = memo(function Newsletter() {
   return (
-    <section data-section='newsletter'>
+    <section id='newsletter' data-section='newsletter'>
       <div className='container landing-shell mx-auto pb-10'>
         <div
           className='relative overflow-hidden rounded-2xl md:rounded-3xl md:bg-transparent bg-secondary'
           data-animate='newsletter-shell'
         >
-          <div
-            className='absolute inset-0 hidden md:block bg-center bg-contain bg-no-repeat min-h-[360px] h-full'
-            style={{
-              backgroundImage: "url('/newslatter.svg')",
-            }}
-          />
+          <div className='absolute inset-0 hidden md:block min-h-[360px] h-full'>
+            <Image
+              src='/newslatter.svg'
+              alt=''
+              fill
+              loading='lazy'
+              sizes='100vw'
+              className='object-contain object-center'
+            />
+          </div>
           <div className='relative z-10 flex flex-col items-center text-center lg:px-16 md:px-12 px-5 lg:py-14 md:py-12 py-10'>
             <div data-animate='item'>
               <Badge

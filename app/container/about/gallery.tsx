@@ -11,9 +11,7 @@ const Gallery = memo(function Gallery() {
           alt='Dentist preparing for treatment'
           width={322}
           height={522}
-          className='rounded-2xl shadow-xl w-full md:w-auto object-cover object-center'
-          priority
-          loading='eager'
+          className='rounded-2xl shadow-xl w-full h-auto md:w-auto object-cover object-center'
           sizes='(max-width: 768px) 100vw, 322px'
           quality={85}
         />
@@ -24,7 +22,6 @@ const Gallery = memo(function Gallery() {
           width={264}
           height={522}
           className='rounded-2xl shadow-xl md:block hidden'
-          loading='eager'
           sizes='(max-width: 768px) 100vw, 264px'
           quality={85}
         />
@@ -35,7 +32,6 @@ const Gallery = memo(function Gallery() {
         alt='Puzzle piece representing dental solutions'
         width={156}
         height={156}
-        loading='eager'
         sizes='(max-width: 768px) 100vw, 156px'
         className='absolute top-20 xl:right-2 md:-right-5 right-0 translate-x-1/2 z-50'
         quality={85}
@@ -52,7 +48,6 @@ const Gallery = memo(function Gallery() {
           alt='Avatar representing dental solutions'
           width={70}
           height={70}
-          loading='eager'
           className='shrink-0'
           sizes='(max-width: 768px) 100vw, 70px'
           quality={85}

@@ -5,7 +5,7 @@ import SpecializedCard from './specialized-card';
 
 const Specialized = memo(function Specialized() {
   return (
-    <div className='bg-secondary' data-section='specialized'>
+    <div id='specialized' className='bg-secondary' data-section='specialized'>
       <div className='container landing-shell mx-auto lg:py-24 md:py-16 py-12'>
         <div className='flex justify-center items-center'>
           <article className='text-white text-center space-y-4 max-w-3xl'>
